@@ -28,20 +28,17 @@ def list(songs)
   end
 end
 
-require 'pry'
+
 
 def play(songs)
   puts "Please enter a song name or number:"
   selection = gets.chomp
-  binding.pry
   if songs.include?(selection) 
-    binding.pry
     puts "Playing #{selection}"
-  elsif   songs.include?(songs[selection - 1])
-  binding.pry
-    puts "Playing #{songs[selection - 1]}"
+  elsif   selection.to_i > 0 && songs.include?(songs[selection.to_i - 1])
+    puts "Playing #{songs[selection.to_i - 1]}"
   else
-    puts "Invalid input, please try again"
+   puts "Invalid input, please try again"
   end  
   
 end
