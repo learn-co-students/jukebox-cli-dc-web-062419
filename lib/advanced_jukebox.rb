@@ -14,7 +14,11 @@
 
 def help
   #this method should be the same as in jukebox.rb
-
+  puts "I accept the following commands:
+- help : displays this help message
+- list : displays a list of songs you can play
+- play : lets you choose a song to play
+- exit : exits this program"
 end
 
 
@@ -22,6 +26,8 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and 
   #list the songs by name
+  
+  
 end
 
 
@@ -38,8 +44,38 @@ end
 
 def exit_jukebox
   #this method is the same as in jukebox.rb
+   puts "Goodbye"
 end
 
 def run(my_songs)
   #this method is the same as in jukebox.rb
+
+  help
+  
+  puts "Please enter a command:"
+  command = gets.downcase.strip
+  
+  while command != "exit"
+  
+  case command
+  when "list"
+    list(songs)
+   puts "Please enter a command:"
+   command = gets.downcase.strip
+  when "play"
+    list(songs)
+     play(songs)
+   puts "Please enter a command:"
+  command = gets.downcase.strip
+  when "help"
+    help
+   puts "Please enter a command:"
+   command = gets.downcase.strip
+ else 
+   puts "#{command} is not a valid command. Please enter play, list, help, or exit."
+  command = gets.downcase.strip
+  end
+
+end
+exit_jukebox
 end

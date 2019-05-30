@@ -57,7 +57,7 @@ def run(songs)
   help
   
   puts "Please enter a command:"
-  command = gets.chomp
+  command = gets.downcase.strip
   
   while command != "exit"
   
@@ -65,30 +65,24 @@ def run(songs)
   when "list"
     list(songs)
    puts "Please enter a command:"
-   command = gets.chomp
+   command = gets.downcase.strip
   when "play"
+    list(songs)
      play(songs)
    puts "Please enter a command:"
-   command = gets.chomp
+  command = gets.downcase.strip
   when "help"
     help
    puts "Please enter a command:"
-   command = gets.chomp
+   command = gets.downcase.strip
+ else 
+   puts "#{command} is not a valid command. Please enter play, list, help, or exit."
+  command = gets.downcase.strip
   end
 
 end
 exit_jukebox
 end
-
-
-
-
-
-
-
-
-
-
 
 
 
