@@ -2,15 +2,15 @@
 #make sure to edit the value of each key to replace < path to this directory >
 #with the correct path to this directory on your computer
 
-# my_songs = {
-# "Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
-# "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
-# "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
-# "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
-# "Wolf" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/05.mp3',
-# "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
-# "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
-# }
+my_songs = {
+"Go Go GO" => '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/01.mp3',
+"LiberTeens" => '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/02.mp3',
+"Hamburg" =>  '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/03.mp3',
+"Guiding Light" => '/home/energetic-environment-6310>/jukebox-cli/audio/Emerald-Park/04.mp3',
+"Wolf" => '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/05.mp3',
+"Blue" => '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/06.mp3',
+"Graduation Failed" => '/home/energetic-environment-6310/jukebox-cli/audio/Emerald-Park/07.mp3'
+}
 
 def help
   #this method should be the same as in jukebox.rb
@@ -44,6 +44,7 @@ def play(my_songs)
     puts "Please enter a song name:"
   selection = gets.chomp
   if my_songs.has_key?(selection) 
+    open my_songs[selection]
     puts "Playing #{selection}"
     
   else
@@ -70,12 +71,12 @@ def run(my_songs)
   
   case command
   when "list"
-    list(songs)
+    list(my_songs)
    puts "Please enter a command:"
    command = gets.downcase.strip
   when "play"
-    list(songs)
-     play(songs)
+    list(my_songs)
+     play(my_songs)
    puts "Please enter a command:"
   command = gets.downcase.strip
   when "help"
