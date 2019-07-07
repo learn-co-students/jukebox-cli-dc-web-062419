@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+!/usr/bin/env ruby
 
 require_relative "../lib/advanced_jukebox"
 
@@ -12,5 +12,14 @@ my_songs = {
 "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
 "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
 }
+def help
+help = <<-help 
+I accept the following commands:
+-help : displays this help message
+-list : displays a list of songs you can play
+- play : lets you choose a song to play
+- exit : exits this program
+HELP
 
-run(my_songs)
+  puts help
+end
